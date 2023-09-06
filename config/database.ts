@@ -41,6 +41,9 @@ const databaseConfig: DatabaseConfig = {
         user: Env.get('PG_USER'),
         password: Env.get('PG_PASSWORD', ''),
         database: Env.get('PG_DB_NAME'),
+        ssl: Env.get('DB_SSL') ? {
+          rejectUnauthorized: false,
+        } : undefined,
       },
       migrations: {
         naturalSort: true,
